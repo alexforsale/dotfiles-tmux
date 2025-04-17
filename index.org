@@ -1,0 +1,25 @@
+#+options: ':nil *:t -:t ::t <:t H:2 \n:nil ^:{} arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:nil
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:t todo:t |:t
+#+title: Tmux Configuration Files
+#+date: <2025-04-17 Thu>
+#+author: Kristian Alexander P
+#+email: alexforsale@yahoo.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 29.2 (Org mode 9.6.15)
+#+cite_export:
+#+property: EXPORT_FILE_NAME: index.html
+#+startup: showall
+#+setupfile: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* About
+This repository is for storing my /tmux/ configuration files. As usual, I'll try to make this configuration as vanilla as possible.
+
+* Configuration
+:PROPERTIES:
+:header-args: :tangle .config/tmux/tmux.conf :mkdirp t
+:END:
