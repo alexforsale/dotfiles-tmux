@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-18 Fri 08:16 -->
+<!-- 2025-04-18 Fri 10:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tmux Configuration Files</title>
@@ -201,46 +201,46 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgec61576">About</a></li>
-<li><a href="#org0cf5506">Configuration</a>
+<li><a href="#org132c63f">About</a></li>
+<li><a href="#org0669fd4">Configuration</a>
 <ul>
-<li><a href="#orgc16e9b8">General Configurations</a></li>
-<li><a href="#org02a5198">Key bindings</a></li>
+<li><a href="#org6e885a0">General Configurations</a></li>
+<li><a href="#org7db6fd2">Key bindings</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgec61576" class="outline-2">
-<h2 id="orgec61576">About</h2>
-<div class="outline-text-2" id="text-orgec61576">
+<div id="outline-container-org132c63f" class="outline-2">
+<h2 id="org132c63f">About</h2>
+<div class="outline-text-2" id="text-org132c63f">
 <p>
 This repository is for storing my <i>tmux</i> configuration files. As usual, I'll try to make this configuration as vanilla as possible.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0cf5506" class="outline-2">
-<h2 id="org0cf5506">Configuration</h2>
-<div class="outline-text-2" id="text-org0cf5506">
+<div id="outline-container-org0669fd4" class="outline-2">
+<h2 id="org0669fd4">Configuration</h2>
+<div class="outline-text-2" id="text-org0669fd4">
 </div>
 
-<div id="outline-container-orgc16e9b8" class="outline-3">
-<h3 id="orgc16e9b8">General Configurations</h3>
-<div class="outline-text-3" id="text-orgc16e9b8">
+<div id="outline-container-org6e885a0" class="outline-3">
+<h3 id="org6e885a0">General Configurations</h3>
+<div class="outline-text-3" id="text-org6e885a0">
 </div>
 <ul class="org-ul">
-<li><a id="orgbe2abdc"></a>Use <i>tmux-256color</i> if possible<br />
-<div class="outline-text-4" id="text-orgbe2abdc">
+<li><a id="org2365fec"></a>Use <i>tmux-256color</i> if possible<br />
+<div class="outline-text-4" id="text-org2365fec">
 <div class="org-src-container">
 <pre class="src src-conf">if <span style="color: #bc8f8f;">'infocmp -x tmux-256color &gt; /dev/null 2&gt;&amp;1'</span> <span style="color: #bc8f8f;">'set -g default-terminal "tmux-256color"'</span>
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org5bb87b7"></a>Screen keybindings<br />
-<div class="outline-text-4" id="text-org5bb87b7">
+<li><a id="org049c16c"></a>Screen keybindings<br />
+<div class="outline-text-4" id="text-org049c16c">
 <div class="org-src-container">
 <pre class="src src-conf">unbind C-b
 set -g prefix C-a
@@ -254,16 +254,16 @@ I'm already too familiar with <i>GNU Screen</i>, so <code>C-a</code> is always m
 </p>
 </div>
 </li>
-<li><a id="orgcb77e06"></a>xterm-keys<br />
-<div class="outline-text-4" id="text-orgcb77e06">
+<li><a id="org7ddaf98"></a>xterm-keys<br />
+<div class="outline-text-4" id="text-org7ddaf98">
 <div class="org-src-container">
 <pre class="src src-conf">setw -g xterm-keys on
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org2ae8633"></a>Automatic Rename<br />
-<div class="outline-text-4" id="text-org2ae8633">
+<li><a id="org65b47b0"></a>Automatic Rename<br />
+<div class="outline-text-4" id="text-org65b47b0">
 <p>
 Rename the window to reflect the current program.
 </p>
@@ -273,8 +273,8 @@ Rename the window to reflect the current program.
 </div>
 </div>
 </li>
-<li><a id="org54da987"></a>Window Renumbering<br />
-<div class="outline-text-4" id="text-org54da987">
+<li><a id="org433b56a"></a>Window Renumbering<br />
+<div class="outline-text-4" id="text-org433b56a">
 <p>
 Renumber windows when a window is closed.
 </p>
@@ -284,16 +284,16 @@ Renumber windows when a window is closed.
 </div>
 </div>
 </li>
-<li><a id="orged04980"></a>Set the terminal title<br />
-<div class="outline-text-4" id="text-orged04980">
+<li><a id="orgd7a7b01"></a>Set the terminal title<br />
+<div class="outline-text-4" id="text-orgd7a7b01">
 <div class="org-src-container">
 <pre class="src src-conf">set -g set-titles on
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org0dd9268"></a>Monitor activity<br />
-<div class="outline-text-4" id="text-org0dd9268">
+<li><a id="org877ddf2"></a>Monitor activity<br />
+<div class="outline-text-4" id="text-org877ddf2">
 <p>
 Monitor for activity in the window. Windows with activity are highlighted in the status line.
 </p>
@@ -303,8 +303,8 @@ Monitor for activity in the window. Windows with activity are highlighted in the
 </div>
 </div>
 </li>
-<li><a id="org8ba52ea"></a>Visual activity<br />
-<div class="outline-text-4" id="text-org8ba52ea">
+<li><a id="orgda9eb96"></a>Visual activity<br />
+<div class="outline-text-4" id="text-orgda9eb96">
 <p>
 If on, display a message instead of sending a bell when activity occurs in a window for which the monitor-activity window option is enabled. If set to both, a bell and a message are produced.
 </p>
@@ -316,13 +316,13 @@ If on, display a message instead of sending a bell when activity occurs in a win
 </li>
 </ul>
 </div>
-<div id="outline-container-org02a5198" class="outline-3">
-<h3 id="org02a5198">Key bindings</h3>
-<div class="outline-text-3" id="text-org02a5198">
+<div id="outline-container-org7db6fd2" class="outline-3">
+<h3 id="org7db6fd2">Key bindings</h3>
+<div class="outline-text-3" id="text-org7db6fd2">
 </div>
 <ul class="org-ul">
-<li><a id="orga7f2644"></a>The default keybindings<br />
-<div class="outline-text-4" id="text-orga7f2644">
+<li><a id="org494baab"></a>The default keybindings<br />
+<div class="outline-text-4" id="text-org494baab">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -601,16 +601,16 @@ If on, display a message instead of sending a bell when activity occurs in a win
 </div>
 </li>
 
-<li><a id="org3cbf719"></a>Clear both screen and history<br />
-<div class="outline-text-4" id="text-org3cbf719">
+<li><a id="orgd7a96db"></a>Clear both screen and history<br />
+<div class="outline-text-4" id="text-orgd7a96db">
 <div class="org-src-container">
 <pre class="src src-conf">bind -n C-l send-keys C-l \; run <span style="color: #bc8f8f;">'sleep 0.2'</span> \; clear-history
 </pre>
 </div>
 </div>
 </li>
-<li><a id="orgca891cd"></a>New Session<br />
-<div class="outline-text-4" id="text-orgca891cd">
+<li><a id="orga306c90"></a>New Session<br />
+<div class="outline-text-4" id="text-orga306c90">
 <p>
 Create a new session,
 </p>
@@ -620,16 +620,16 @@ Create a new session,
 </div>
 </div>
 </li>
-<li><a id="orgf420fef"></a>Find session<br />
-<div class="outline-text-4" id="text-orgf420fef">
+<li><a id="org902502f"></a>Find session<br />
+<div class="outline-text-4" id="text-org902502f">
 <div class="org-src-container">
 <pre class="src src-conf">bind C-f command-prompt -p find-session <span style="color: #bc8f8f;">'switch-client -t %%'</span>
 </pre>
 </div>
 </div>
 </li>
-<li><a id="orgd5e96cd"></a>Session navigation<br />
-<div class="outline-text-4" id="text-orgd5e96cd">
+<li><a id="org61b73f5"></a>Session navigation<br />
+<div class="outline-text-4" id="text-org61b73f5">
 <p>
 Move to last session
 </p>
@@ -639,24 +639,24 @@ Move to last session
 </div>
 </div>
 </li>
-<li><a id="orgf395924"></a>Split window horizontally<br />
-<div class="outline-text-4" id="text-orgf395924">
+<li><a id="orgb937d39"></a>Split window horizontally<br />
+<div class="outline-text-4" id="text-orgb937d39">
 <div class="org-src-container">
 <pre class="src src-conf">bind - split-window -v
 </pre>
 </div>
 </div>
 </li>
-<li><a id="orge5a59d3"></a>Split window vertically<br />
-<div class="outline-text-4" id="text-orge5a59d3">
+<li><a id="orgfc5aa03"></a>Split window vertically<br />
+<div class="outline-text-4" id="text-orgfc5aa03">
 <div class="org-src-container">
 <pre class="src src-conf">bind _ split-window -h
 </pre>
 </div>
 </div>
 </li>
-<li><a id="orge081c17"></a>Pane Navigation<br />
-<div class="outline-text-4" id="text-orge081c17">
+<li><a id="orge339305"></a>Pane Navigation<br />
+<div class="outline-text-4" id="text-orge339305">
 <p>
 Move left.
 </p>
@@ -701,8 +701,8 @@ Swap current pane with the previous one.
 </div>
 </div>
 </li>
-<li><a id="org0cb69a5"></a>Pane Resizing<br />
-<div class="outline-text-4" id="text-org0cb69a5">
+<li><a id="org4339c99"></a>Pane Resizing<br />
+<div class="outline-text-4" id="text-org4339c99">
 <div class="org-src-container">
 <pre class="src src-conf">bind -r H resize-pane -L 2
 bind -r J resize-pane -D 2
@@ -712,8 +712,8 @@ bind -r L resize-pane -R 2
 </div>
 </div>
 </li>
-<li><a id="org6745134"></a>Window Navigation<br />
-<div class="outline-text-4" id="text-org6745134">
+<li><a id="org944d105"></a>Window Navigation<br />
+<div class="outline-text-4" id="text-org944d105">
 <p>
 Select previous window.
 </p>
@@ -748,32 +748,32 @@ Move to last active window.
 </div>
 </div>
 </li>
-<li><a id="org5c529ac"></a>Mouse<br />
-<div class="outline-text-4" id="text-org5c529ac">
+<li><a id="org06b72b3"></a>Mouse<br />
+<div class="outline-text-4" id="text-org06b72b3">
 <div class="org-src-container">
 <pre class="src src-conf">set -g mouse on
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org26e4b0b"></a>Enter Copy Mode<br />
-<div class="outline-text-4" id="text-org26e4b0b">
+<li><a id="orgfaa24ff"></a>Enter Copy Mode<br />
+<div class="outline-text-4" id="text-orgfaa24ff">
 <div class="org-src-container">
 <pre class="src src-conf">bind Enter copy-mode
 </pre>
 </div>
 </div>
 </li>
-<li><a id="orgdc2fe26"></a>Reload config<br />
-<div class="outline-text-4" id="text-orgdc2fe26">
+<li><a id="org3824556"></a>Reload config<br />
+<div class="outline-text-4" id="text-org3824556">
 <div class="org-src-container">
 <pre class="src src-conf">bind-key C-r source-file ~/.config/tmux/tmux.conf \; display-message <span style="color: #bc8f8f;">"Tmux config reloaded!"</span>
 </pre>
 </div>
 </div>
 </li>
-<li><a id="orgb4e0c85"></a>Edit config<br />
-<div class="outline-text-4" id="text-orgb4e0c85">
+<li><a id="org67c4060"></a>Edit config<br />
+<div class="outline-text-4" id="text-org67c4060">
 <div class="org-src-container">
 <pre class="src src-conf">bind e new-window -n <span style="color: #bc8f8f;">"~/.config/tmux/tmux.conf"</span> sh -c <span style="color: #bc8f8f;">'${EDITOR:-vim} ~/.config/tmux/tmux.conf &amp;&amp; tmux source ~/.tmux.conf &amp;&amp; tmux display "~/.config/tmux/tmux.conf sourced"'</span>
 </pre>
@@ -787,7 +787,7 @@ Move to last active window.
 <div id="postamble" class="status">
 <p class="date">Date: 2025-04-17 Thu 00:00</p>
 <p class="author">Author: Kristian Alexander P</p>
-<p class="date">Created: 2025-04-18 Fri 08:16</p>
+<p class="date">Created: 2025-04-18 Fri 10:53</p>
 </div>
 </body>
 </html>
