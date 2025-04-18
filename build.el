@@ -28,7 +28,7 @@
       org-src-fontify-natively t)
 
 (setq org-publish-project-alist
-      '(("dotfiles-i3"
+      '(("dotfiles-tmux"
          :components ("pages" "static"))
         ("pages"
          :recursive t
