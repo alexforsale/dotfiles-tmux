@@ -24,3 +24,208 @@ This repository is for storing my /tmux/ configuration files. As usual, I'll try
 :PROPERTIES:
 :header-args: :tangle .config/tmux/tmux.conf :mkdirp t
 :END:
+
+** General Configurations
+*** Use /tmux-256color/ if possible
+#+begin_src conf
+  if 'infocmp -x tmux-256color > /dev/null 2>&1' 'set -g default-terminal "tmux-256color"'
+#+end_src
+*** Screen keybindings
+#+begin_src conf
+  unbind C-b
+  set -g prefix C-a
+  bind a send-prefix
+  bind a send-prefix
+  bind-key C-a last-window
+#+end_src
+I'm already too familiar with /GNU Screen/, so ~C-a~ is always my prefix key. To make it more /Screen-like/, ~C-a C-a~ will alternate between two latest windows.
+*** xterm-keys
+#+begin_src conf
+  setw -g xterm-keys on
+#+end_src
+*** Automatic Rename
+Rename the window to reflect the current program.
+#+begin_src conf
+  setw -g automatic-rename on
+#+end_src
+*** Window Renumbering
+Renumber windows when a window is closed.
+#+begin_src conf
+  set -g renumber-windows on
+#+end_src
+*** Set the terminal title
+#+begin_src conf
+  set -g set-titles on
+#+end_src
+*** Monitor activity
+Monitor for activity in the window. Windows with activity are highlighted in the status line.
+#+begin_src conf
+  set -g monitor-activity on
+#+end_src
+*** Visual activity
+If on, display a message instead of sending a bell when activity occurs in a window for which the monitor-activity window option is enabled. If set to both, a bell and a message are produced.
+#+begin_src conf
+  set -g visual-activity on
+#+end_src
+** Key bindings
+*** The default keybindings
+
+|-------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| C-b                           | Send the prefix key (C-b) through to the application.                                                                                                                         |
+| C-o                           | Rotate the panes in the current window forwards.                                                                                                                              |
+| C-z                           | Suspend the tmux client.                                                                                                                                                      |
+| !                             | Break the current pane out of the window.                                                                                                                                     |
+| "                             | Split the current pane into two, top and bottom.                                                                                                                              |
+| #                             | List all paste buffers.                                                                                                                                                       |
+| $                             | Rename the current session.                                                                                                                                                   |
+| %                             | Split the current pane into two, left and right.                                                                                                                              |
+| &                             | Kill the current window.                                                                                                                                                      |
+| '                             | Prompt for a window index to select.                                                                                                                                          |
+| (                             | Switch the attached client to the previous session.                                                                                                                           |
+| )                             | Switch the attached client to the next session.                                                                                                                               |
+| ,                             | Rename the current window.                                                                                                                                                    |
+| -                             | Delete the most recently copied buffer of text.                                                                                                                               |
+| .                             | Prompt for an index to move the current window.                                                                                                                               |
+| 0 to 9                        | Select windows 0 to 9.                                                                                                                                                        |
+| :                             | Enter the tmux command prompt.                                                                                                                                                |
+| ;                             | Move to the previously active pane.                                                                                                                                           |
+| =                             | Choose which buffer to paste interactively from a list.                                                                                                                       |
+| ?                             | List all key bindings.                                                                                                                                                        |
+| D                             | Choose a client to detach.                                                                                                                                                    |
+| L                             | Switch the attached client back to the last session.                                                                                                                          |
+| [                             | Enter copy mode to copy text or view the history.                                                                                                                             |
+| ]                             | Paste the most recently copied buffer of text.                                                                                                                                |
+| c                             | Create a new window.                                                                                                                                                          |
+| d                             | Detach the current client.                                                                                                                                                    |
+| f                             | Prompt to search for text in open windows.                                                                                                                                    |
+| i                             | Display some information about the current window.                                                                                                                            |
+| l                             | Move to the previously selected window.                                                                                                                                       |
+| m                             | Mark the current pane (see select-pane -m).                                                                                                                                   |
+| M                             | Clear the marked pane.                                                                                                                                                        |
+| n                             | Change to the next window.                                                                                                                                                    |
+| o                             | Select the next pane in the current window.                                                                                                                                   |
+| p                             | Change to the previous window.                                                                                                                                                |
+| q                             | Briefly display pane indexes.                                                                                                                                                 |
+| r                             | Force redraw of the attached client.                                                                                                                                          |
+| s                             | Select a new session for the attached client interactively.                                                                                                                   |
+| t                             | Show the time.                                                                                                                                                                |
+| w                             | Choose the current window interactively.                                                                                                                                      |
+| x                             | Kill the current pane.                                                                                                                                                        |
+| z                             | Toggle zoom state of the current pane.                                                                                                                                        |
+| {                             | Swap the current pane with the previous pane.                                                                                                                                 |
+| }                             | Swap the current pane with the next pane.                                                                                                                                     |
+| ~                             | Show previous messages from tmux, if any.                                                                                                                                     |
+| Page Up                       | Enter copy mode and scroll one page up.                                                                                                                                       |
+| Up, Down,Left, Right          | Change to the pane above, below, to the left, or to the right of the current pane.                                                                                            |
+| M-1 to M-7                    | Arrange panes in one of the seven preset layouts: even-horizontal, even-vertical, main-horizontal, main-horizontal-mirrored, main-vertical, main-vertical-mirrored, or tiled. |
+| Space                         | Arrange the current window in the next preset layout.                                                                                                                         |
+| M-n                           | Move to the next window with a bell or activity marker.                                                                                                                       |
+| M-o                           | Rotate the panes in the current window backwards.                                                                                                                             |
+| M-p                           | Move to the previous window with a bell or activity marker.                                                                                                                   |
+| C-Up, C-Down, C-Left, C-Right | Resize the current pane in steps of one cell.                                                                                                                                 |
+| M-Up, M-Down, M-Left, M-Right | Resize the current pane in steps of five cells.                                                                                                                               |
+
+*** Clear both screen and history
+#+begin_src conf
+  bind -n C-l send-keys C-l \; run 'sleep 0.2' \; clear-history
+#+end_src
+*** New Session
+Create a new session,
+#+begin_src conf
+  bind C-c new-session
+#+end_src
+*** Find session
+#+begin_src conf
+  bind C-f command-prompt -p find-session 'switch-client -t %%'
+#+end_src
+*** Session navigation
+Move to last session
+#+begin_src conf
+  bind BTab switch-client -l
+#+end_src
+*** Split window horizontally
+#+begin_src conf
+  bind - split-window -v
+#+end_src
+*** Split window vertically
+#+begin_src conf
+  bind _ split-window -h
+#+end_src
+*** Pane Navigation
+Move left.
+#+begin_src conf
+  bind -r h select-pane -L
+#+end_src
+Move Down.
+#+begin_src conf
+  bind -r j select-pane -D
+#+end_src
+Move Up.
+#+begin_src conf
+  bind -r k select-pane -U
+#+end_src
+Move Right.
+#+begin_src conf
+  bind -r l select-pane -R
+#+end_src
+Swap current pane with the next one.
+#+begin_src conf
+  bind > swap-pane -D
+#+end_src
+Swap current pane with the previous one.
+#+begin_src conf
+  bind < swap-pane -U
+#+end_src
+*** Pane Resizing
+#+begin_src conf
+  bind -r H resize-pane -L 2
+  bind -r J resize-pane -D 2
+  bind -r K resize-pane -U 2
+  bind -r L resize-pane -R 2
+#+end_src
+*** Window Navigation
+Select previous window.
+#+begin_src conf
+  bind C-p previous-window
+#+end_src
+
+Select previous window.
+#+begin_src conf
+  bind p previous-window
+#+end_src
+
+Select next window.
+#+begin_src conf
+  bind C-n next-window
+  bind n next-window
+#+end_src
+
+Move to last active window.
+#+begin_src conf
+  bind Tab last-window
+#+end_src
+*** Mouse
+#+begin_src conf
+  set -g mouse on
+#+end_src
+*** Enter Copy Mode
+#+begin_src conf
+  bind Enter copy-mode
+#+end_src
+*** Reload config
+#+begin_src conf
+  bind-key C-r source-file ~/.config/tmux/tmux.conf \; display-message "Tmux config reloaded!"
+#+end_src
+*** Edit config
+#+begin_src conf
+  bind e new-window -n "~/.config/tmux/tmux.conf" sh -c '${EDITOR:-vim} ~/.config/tmux/tmux.conf && tmux source ~/.tmux.conf && tmux display "~/.config/tmux/tmux.conf sourced"'
+#+end_src
+*** Copy to X11 Clipboard :noexport:
+#+begin_src conf :tangle no
+  if -b 'command -v xsel > /dev/null 2>&1' 'bind y run -b "tmux save-buffer - | xsel -i -b"'
+  if -b '! command -v xsel > /dev/null 2>&1 && command -v xclip > /dev/null 2>&1' 'bind y run -b "tmux save-buffer - | xclip -i -selection clipboard >/dev/null 2>&1"'
+#+end_src
+*** Copy to Wayland Clipboard :noexport:
+#+begin_src conf :tangle no
+  if -b 'command -v wl-copy > /dev/null 2>&1' 'bind y run -b "tmux save-buffer - | wl-copy"'
+#+end_src
