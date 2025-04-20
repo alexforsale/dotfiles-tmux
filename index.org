@@ -21,7 +21,7 @@
 #+HTML_HEAD: <style> li{max-width:800px;}</style>
 
 * About
-This repository is for storing my /tmux/ configuration files. As usual, I'll try to make this configuration as vanilla as possible.
+This repository is for storing my /tmux/ configuration files. As usual, I'll try to make this configuration as vanilla as possible. Mostly I only need /tmux/ or /screen/ when I'm accessing a remote machine, create 2 or 3 window at most (Vim/Vi or Emacs, a terminal for logging, and another one for troubleshooting). So it's just a matter of /scp/-ing this single configuration file to the remote machine, install /tmux/ if not already, and just use it.
 
 * Configuration
 :PROPERTIES:
