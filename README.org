@@ -25,4 +25,4 @@
 #+end_html
 
 * About
-This repository is for storing my /tmux/ configuration files.
+This repository is for storing my /tmux/ configuration files. Part of a collection of my [[https://github.com/alexforsale/dotfiles/][dotfiles]]. Please see [[./index.org][index.org]] for details.
