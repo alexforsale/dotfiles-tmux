@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-20 Sun 15:12 -->
+<!-- 2025-09-17 Wed 15:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tmux Configuration Files</title>
@@ -11,12 +11,14 @@
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/code-copy.css"/>
 <link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/code-copy.js"></script>
 <style> #content{max-width:1800px;}</style>
 <style> p{max-width:800px;}</style>
 <style> li{max-width:800px;}</style>
@@ -28,46 +30,47 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org02f8b2d">About</a></li>
-<li><a href="#orgabb9bae">Configuration</a>
+<li><a href="#org58635dc">About</a></li>
+<li><a href="#orgd7da3f3">Configuration</a>
 <ul>
-<li><a href="#org002029b">General Configurations</a></li>
-<li><a href="#org05314e0">Key bindings</a></li>
+<li><a href="#org2268524">General Configurations</a></li>
+<li><a href="#orgf30ddf0">Key bindings</a></li>
+<li><a href="#orgf29e953">Themes</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org02f8b2d" class="outline-2">
-<h2 id="org02f8b2d">About</h2>
-<div class="outline-text-2" id="text-org02f8b2d">
+<div id="outline-container-org58635dc" class="outline-2">
+<h2 id="org58635dc">About</h2>
+<div class="outline-text-2" id="text-org58635dc">
 <p>
 This repository is for storing my <i>tmux</i> configuration files. As usual, I'll try to make this configuration as vanilla as possible. Mostly I only need <i>tmux</i> or <i>screen</i> when I'm accessing a remote machine, create 2 or 3 window at most (Vim/Vi or Emacs, a terminal for logging, and another one for troubleshooting). So it's just a matter of <i>scp</i>-ing this single configuration file to the remote machine, install <i>tmux</i> if not already, and just use it.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgabb9bae" class="outline-2">
-<h2 id="orgabb9bae">Configuration</h2>
-<div class="outline-text-2" id="text-orgabb9bae">
+<div id="outline-container-orgd7da3f3" class="outline-2">
+<h2 id="orgd7da3f3">Configuration</h2>
+<div class="outline-text-2" id="text-orgd7da3f3">
 </div>
 
-<div id="outline-container-org002029b" class="outline-3">
-<h3 id="org002029b">General Configurations</h3>
-<div class="outline-text-3" id="text-org002029b">
+<div id="outline-container-org2268524" class="outline-3">
+<h3 id="org2268524">General Configurations</h3>
+<div class="outline-text-3" id="text-org2268524">
 </div>
 <ul class="org-ul">
-<li><a id="org8502178"></a>Use <i>tmux-256color</i> if possible<br />
-<div class="outline-text-4" id="text-org8502178">
+<li><a id="org50058c8"></a>Use <i>tmux-256color</i> if possible<br />
+<div class="outline-text-4" id="text-org50058c8">
 <div class="org-src-container">
 <pre class="src src-conf">if <span style="color: #bc8f8f;">'infocmp -x tmux-256color &gt; /dev/null 2&gt;&amp;1'</span> <span style="color: #bc8f8f;">'set -g default-terminal "tmux-256color"'</span>
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org52a85bd"></a>Screen keybindings<br />
-<div class="outline-text-4" id="text-org52a85bd">
+<li><a id="orgc428a56"></a>Screen keybindings<br />
+<div class="outline-text-4" id="text-orgc428a56">
 <div class="org-src-container">
 <pre class="src src-conf">unbind C-b
 set -g prefix C-a
@@ -81,16 +84,16 @@ I'm already too familiar with <i>GNU Screen</i>, so <code>C-a</code> is always m
 </p>
 </div>
 </li>
-<li><a id="org1a6a9f4"></a>xterm-keys<br />
-<div class="outline-text-4" id="text-org1a6a9f4">
+<li><a id="org52c2c34"></a>xterm-keys<br />
+<div class="outline-text-4" id="text-org52c2c34">
 <div class="org-src-container">
 <pre class="src src-conf">setw -g xterm-keys on
 </pre>
 </div>
 </div>
 </li>
-<li><a id="orga5618bf"></a>Automatic Rename<br />
-<div class="outline-text-4" id="text-orga5618bf">
+<li><a id="org1c1db3b"></a>Automatic Rename<br />
+<div class="outline-text-4" id="text-org1c1db3b">
 <p>
 Rename the window to reflect the current program.
 </p>
@@ -100,8 +103,8 @@ Rename the window to reflect the current program.
 </div>
 </div>
 </li>
-<li><a id="org1ebcc9b"></a>Window Renumbering<br />
-<div class="outline-text-4" id="text-org1ebcc9b">
+<li><a id="org08a6632"></a>Window Renumbering<br />
+<div class="outline-text-4" id="text-org08a6632">
 <p>
 Renumber windows when a window is closed.
 </p>
@@ -111,16 +114,16 @@ Renumber windows when a window is closed.
 </div>
 </div>
 </li>
-<li><a id="orgecd2899"></a>Set the terminal title<br />
-<div class="outline-text-4" id="text-orgecd2899">
+<li><a id="org1f968a0"></a>Set the terminal title<br />
+<div class="outline-text-4" id="text-org1f968a0">
 <div class="org-src-container">
 <pre class="src src-conf">set -g set-titles on
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org903c4d9"></a>Monitor activity<br />
-<div class="outline-text-4" id="text-org903c4d9">
+<li><a id="org6007deb"></a>Monitor activity<br />
+<div class="outline-text-4" id="text-org6007deb">
 <p>
 Monitor for activity in the window. Windows with activity are highlighted in the status line.
 </p>
@@ -130,8 +133,8 @@ Monitor for activity in the window. Windows with activity are highlighted in the
 </div>
 </div>
 </li>
-<li><a id="orgcd78712"></a>Visual activity<br />
-<div class="outline-text-4" id="text-orgcd78712">
+<li><a id="org6aad3ea"></a>Visual activity<br />
+<div class="outline-text-4" id="text-org6aad3ea">
 <p>
 If on, display a message instead of sending a bell when activity occurs in a window for which the monitor-activity window option is enabled. If set to both, a bell and a message are produced.
 </p>
@@ -141,15 +144,27 @@ If on, display a message instead of sending a bell when activity occurs in a win
 </div>
 </div>
 </li>
+<li><a id="org6d1e603"></a>themes<br />
+<ul class="org-ul">
+<li><a id="org790f552"></a>nord<br />
+<div class="outline-text-5" id="text-org790f552">
+<div class="org-src-container">
+<pre class="src src-conf">source-file ~/.config/tmux/nord.conf
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</li>
 </ul>
 </div>
-<div id="outline-container-org05314e0" class="outline-3">
-<h3 id="org05314e0">Key bindings</h3>
-<div class="outline-text-3" id="text-org05314e0">
+<div id="outline-container-orgf30ddf0" class="outline-3">
+<h3 id="orgf30ddf0">Key bindings</h3>
+<div class="outline-text-3" id="text-orgf30ddf0">
 </div>
 <ul class="org-ul">
-<li><a id="orgf56c2ff"></a>The default keybindings<br />
-<div class="outline-text-4" id="text-orgf56c2ff">
+<li><a id="orgaf6cde1"></a>The default keybindings<br />
+<div class="outline-text-4" id="text-orgaf6cde1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -428,16 +443,16 @@ If on, display a message instead of sending a bell when activity occurs in a win
 </div>
 </li>
 
-<li><a id="org42197fe"></a>Clear both screen and history<br />
-<div class="outline-text-4" id="text-org42197fe">
+<li><a id="orgdc6f67e"></a>Clear both screen and history<br />
+<div class="outline-text-4" id="text-orgdc6f67e">
 <div class="org-src-container">
 <pre class="src src-conf">bind -n C-l send-keys C-l \; run <span style="color: #bc8f8f;">'sleep 0.2'</span> \; clear-history
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org6d05465"></a>New Session<br />
-<div class="outline-text-4" id="text-org6d05465">
+<li><a id="orge58d807"></a>New Session<br />
+<div class="outline-text-4" id="text-orge58d807">
 <p>
 Create a new session,
 </p>
@@ -447,16 +462,16 @@ Create a new session,
 </div>
 </div>
 </li>
-<li><a id="org674f583"></a>Find session<br />
-<div class="outline-text-4" id="text-org674f583">
+<li><a id="org7817136"></a>Find session<br />
+<div class="outline-text-4" id="text-org7817136">
 <div class="org-src-container">
 <pre class="src src-conf">bind C-f command-prompt -p find-session <span style="color: #bc8f8f;">'switch-client -t %%'</span>
 </pre>
 </div>
 </div>
 </li>
-<li><a id="orge7c8652"></a>Session navigation<br />
-<div class="outline-text-4" id="text-orge7c8652">
+<li><a id="orgde61ea4"></a>Session navigation<br />
+<div class="outline-text-4" id="text-orgde61ea4">
 <p>
 Move to last session
 </p>
@@ -466,24 +481,24 @@ Move to last session
 </div>
 </div>
 </li>
-<li><a id="org31def1f"></a>Split window horizontally<br />
-<div class="outline-text-4" id="text-org31def1f">
+<li><a id="orgb4a1fdc"></a>Split window horizontally<br />
+<div class="outline-text-4" id="text-orgb4a1fdc">
 <div class="org-src-container">
 <pre class="src src-conf">bind - split-window -v
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org38aa7e0"></a>Split window vertically<br />
-<div class="outline-text-4" id="text-org38aa7e0">
+<li><a id="orgac23de7"></a>Split window vertically<br />
+<div class="outline-text-4" id="text-orgac23de7">
 <div class="org-src-container">
 <pre class="src src-conf">bind _ split-window -h
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org1e8c23f"></a>Pane Navigation<br />
-<div class="outline-text-4" id="text-org1e8c23f">
+<li><a id="org8b73ece"></a>Pane Navigation<br />
+<div class="outline-text-4" id="text-org8b73ece">
 <p>
 Move left.
 </p>
@@ -528,8 +543,8 @@ Swap current pane with the previous one.
 </div>
 </div>
 </li>
-<li><a id="orgcc412a8"></a>Pane Resizing<br />
-<div class="outline-text-4" id="text-orgcc412a8">
+<li><a id="org6d2dac1"></a>Pane Resizing<br />
+<div class="outline-text-4" id="text-org6d2dac1">
 <div class="org-src-container">
 <pre class="src src-conf">bind -r H resize-pane -L 2
 bind -r J resize-pane -D 2
@@ -539,8 +554,8 @@ bind -r L resize-pane -R 2
 </div>
 </div>
 </li>
-<li><a id="orge4655b8"></a>Window Navigation<br />
-<div class="outline-text-4" id="text-orge4655b8">
+<li><a id="org10e9edf"></a>Window Navigation<br />
+<div class="outline-text-4" id="text-org10e9edf">
 <p>
 Select previous window.
 </p>
@@ -575,32 +590,32 @@ Move to last active window.
 </div>
 </div>
 </li>
-<li><a id="org2516227"></a>Mouse<br />
-<div class="outline-text-4" id="text-org2516227">
+<li><a id="orga2ebaec"></a>Mouse<br />
+<div class="outline-text-4" id="text-orga2ebaec">
 <div class="org-src-container">
 <pre class="src src-conf">set -g mouse on
 </pre>
 </div>
 </div>
 </li>
-<li><a id="orga17d2b4"></a>Enter Copy Mode<br />
-<div class="outline-text-4" id="text-orga17d2b4">
+<li><a id="org24dfe2b"></a>Enter Copy Mode<br />
+<div class="outline-text-4" id="text-org24dfe2b">
 <div class="org-src-container">
 <pre class="src src-conf">bind Enter copy-mode
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org9928ab9"></a>Reload config<br />
-<div class="outline-text-4" id="text-org9928ab9">
+<li><a id="org65990e0"></a>Reload config<br />
+<div class="outline-text-4" id="text-org65990e0">
 <div class="org-src-container">
 <pre class="src src-conf">bind-key C-r source-file ~/.config/tmux/tmux.conf \; display-message <span style="color: #bc8f8f;">"Tmux config reloaded!"</span>
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org5f2f1ba"></a>Edit config<br />
-<div class="outline-text-4" id="text-org5f2f1ba">
+<li><a id="org666c382"></a>Edit config<br />
+<div class="outline-text-4" id="text-org666c382">
 <div class="org-src-container">
 <pre class="src src-conf">bind e new-window -n <span style="color: #bc8f8f;">"~/.config/tmux/tmux.conf"</span> sh -c <span style="color: #bc8f8f;">'${EDITOR:-vim} ~/.config/tmux/tmux.conf &amp;&amp; tmux source ~/.tmux.conf &amp;&amp; tmux display "~/.config/tmux/tmux.conf sourced"'</span>
 </pre>
@@ -609,12 +624,63 @@ Move to last active window.
 </li>
 </ul>
 </div>
+<div id="outline-container-orgf29e953" class="outline-3">
+<h3 id="orgf29e953">Themes</h3>
+<div class="outline-text-3" id="text-orgf29e953">
+<div class="org-src-container">
+<pre class="src src-conf"><span style="color: #b22222;"># </span><span style="color: #b22222;">Copyright (c) 2016-present Sven Greb <a href="mailto:development%40svengreb.de">&lt;development@svengreb.de&gt;</a>
+</span><span style="color: #b22222;"># </span><span style="color: #b22222;">This source code is licensed under the MIT license found in the license file.
+</span>
+<span style="color: #b22222;">#</span><span style="color: #b22222;">+----------------+
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+ Plugin Support +
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+----------------+
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+--- tmux-prefix-highlight ---+
+</span>set -g @prefix_highlight_fg black
+set -g @prefix_highlight_bg brightcyan
+
+<span style="color: #b22222;">#</span><span style="color: #b22222;">+---------+
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+ Options +
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+---------+
+</span>set -g status-interval 1
+set -g status on
+
+<span style="color: #b22222;">#</span><span style="color: #b22222;">+--------+
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+ Status +
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+--------+
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+--- Layout ---+
+</span>set -g status-justify left
+
+<span style="color: #b22222;">#</span><span style="color: #b22222;">+--- Colors ---+
+</span><span style="color: #b8860b;">set -g status-style bg</span>=black,fg=white
+
+<span style="color: #b22222;">#</span><span style="color: #b22222;">+-------+
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+ Panes +
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+-------+
+</span><span style="color: #b8860b;">set -g pane-border-style bg</span>=default,fg=brightblack
+<span style="color: #b8860b;">set -g pane-active-border-style bg</span>=default,fg=blue
+set -g display-panes-colour black
+set -g display-panes-active-colour brightblack
+
+<span style="color: #b22222;">#</span><span style="color: #b22222;">+------------+
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+ Clock Mode +
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+------------+
+</span>setw -g clock-mode-colour cyan
+
+<span style="color: #b22222;">#</span><span style="color: #b22222;">+----------+
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+ Messages +
+</span><span style="color: #b22222;">#</span><span style="color: #b22222;">+---------+
+</span><span style="color: #b8860b;">set -g message-style bg</span>=brightblack,fg=cyan
+<span style="color: #b8860b;">set -g message-command-style bg</span>=brightblack,fg=cyan
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2025-04-17 Thu 00:00</p>
 <p class="author">Author: Kristian Alexander P</p>
-<p class="date">Created: 2025-04-20 Sun 15:12</p>
+<p class="date">Created: 2025-09-17 Wed 15:03</p>
 </div>
 </body>
 </html>
