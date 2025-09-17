@@ -70,6 +70,11 @@ If on, display a message instead of sending a bell when activity occurs in a win
 #+begin_src conf
   set -g visual-activity on
 #+end_src
+*** themes
+**** nord
+#+begin_src conf
+  source-file ~/.config/tmux/nord.conf
+#+end_src
 ** Key bindings
 *** The default keybindings
 
@@ -231,4 +236,53 @@ Move to last active window.
 *** Copy to Wayland Clipboard :noexport:
 #+begin_src conf :tangle no
   if -b 'command -v wl-copy > /dev/null 2>&1' 'bind y run -b "tmux save-buffer - | wl-copy"'
+#+end_src
+** Themes
+:PROPERTIES:
+:header-args: :tangle .config/tmux/nord.conf :mkdirp t
+:END:
+#+begin_src conf
+  # Copyright (c) 2016-present Sven Greb <development@svengreb.de>
+  # This source code is licensed under the MIT license found in the license file.
+
+  ,#+----------------+
+  ,#+ Plugin Support +
+  ,#+----------------+
+  ,#+--- tmux-prefix-highlight ---+
+  set -g @prefix_highlight_fg black
+  set -g @prefix_highlight_bg brightcyan
+
+  ,#+---------+
+  ,#+ Options +
+  ,#+---------+
+  set -g status-interval 1
+  set -g status on
+
+  ,#+--------+
+  ,#+ Status +
+  ,#+--------+
+  ,#+--- Layout ---+
+  set -g status-justify left
+
+  ,#+--- Colors ---+
+  set -g status-style bg=black,fg=white
+
+  ,#+-------+
+  ,#+ Panes +
+  ,#+-------+
+  set -g pane-border-style bg=default,fg=brightblack
+  set -g pane-active-border-style bg=default,fg=blue
+  set -g display-panes-colour black
+  set -g display-panes-active-colour brightblack
+
+  ,#+------------+
+  ,#+ Clock Mode +
+  ,#+------------+
+  setw -g clock-mode-colour cyan
+
+  ,#+----------+
+  ,#+ Messages +
+  ,#+---------+
+  set -g message-style bg=brightblack,fg=cyan
+  set -g message-command-style bg=brightblack,fg=cyan
 #+end_src
